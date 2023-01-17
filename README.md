@@ -1,4 +1,8 @@
-# CodeIgniter HTMX
+# CodeIgniter HTMX adapted for PHP 7
+
+This fork is meant to adapt the library for PHP 7 (the original library only works with PHP 8.x)
+
+NO ADJUSTMENTS HAVE BEEN ADDED YET. What follows comes from the original project.
 
 A set of methods for `IncomingRequest`, `Response` and `RedirectResponse` classes to help you work with [htmx](https://htmx.org) fluently in CodeIgniter 4 framework.
 
