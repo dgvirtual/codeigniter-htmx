@@ -58,7 +58,17 @@ class RedirectResponse extends BaseRedirectResponse
      */
     public function hxRedirect(string $uri): RedirectResponse
     {
-        if (! str_starts_with($uri, 'http')) {
+        // fallback for php 7.4
+        // source: Laravel Framework
+        // https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/Str.php
+        if (!function_exists('str_starts_with')) {
+            function str_starts_with($haystack, $needle)
+            {
+                return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
+            }
+        }
+
+        if (!str_starts_with($uri, 'http')) {
             $uri = site_url($uri);
         }
 

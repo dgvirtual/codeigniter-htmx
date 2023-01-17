@@ -64,15 +64,33 @@ class Response extends BaseResponse
      * Allows you to trigger client side events.
      *
      * @return Response;
+     * @param array|string $params // downgrade to php 7.4
      */
-    public function triggerClientEvent(string $name, array|string $params = '', string $after = 'receive'): Response
+    public function triggerClientEvent(string $name, $params = '', string $after = 'receive'): Response
     {
-        $header = match ($after) {
-            'receive' => 'HX-Trigger',
-            'settle'  => 'HX-Trigger-After-Settle',
-            'swap'    => 'HX-Trigger-After-Swap',
-            default   => throw new InvalidArgumentException('A value for "after" argument must be one of: "receive", "settle", or "swap".'),
-        };
+        // downgrade to php 7.4: start
+        // $header = match ($after) {
+        //     'receive' => 'HX-Trigger',
+        //     'settle'  => 'HX-Trigger-After-Settle',
+        //     'swap'    => 'HX-Trigger-After-Swap',
+        //     default   => throw new InvalidArgumentException('A value for "after" argument must be one of: "receive", "settle", or "swap".'),
+        // };
+
+        function match74($value)
+        {
+            if ($value == 'receive') {
+                return 'HX-Trigger';
+            } elseif ($value == 'settle') {
+                return 'HX-Trigger-After-Settle';
+            } elseif ($value == 'swap') {
+                return 'HX-Trigger-After-Swap';
+            }
+
+            throw new InvalidArgumentException('A value for "after" argument must be one of: "receive", "settle", or "swap".');
+        }
+
+        $header = match74($after);
+        // downgrade to php 7.4: end
 
         if ($this->hasHeader($header)) {
             $data = json_decode($this->header($header)->getValue(), true);

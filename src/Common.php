@@ -3,7 +3,7 @@
 use CodeIgniter\Config\Services;
 use CodeIgniter\Config\View;
 
-if (! function_exists('view_fragment')) {
+if (!function_exists('view_fragment')) {
     /**
      * Grabs the current RendererInterface-compatible class
      * and tells it to render the specified view fragments.
@@ -14,8 +14,9 @@ if (! function_exists('view_fragment')) {
      * all be handled manually by the developer.
      *
      * @param array $options Options for saveData or third-party extensions.
+     * @param string|array $fragments // downgrade to php 7.4
      */
-    function view_fragment(string $name, string|array $fragments, array $data = [], array $options = []): string
+    function view_fragment(string $name, $fragments, array $data = [], array $options = []): string
     {
         $renderer = Services::renderer();
 

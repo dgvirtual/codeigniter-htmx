@@ -8,11 +8,13 @@ class ErrorModalDecorator implements ViewDecoratorInterface
 {
     public static function decorate(string $html): string
     {
-        if (CI_DEBUG
+
+        if (
+            CI_DEBUG
             && (! is_cli() || ENVIRONMENT === 'testing')
             && ! service('request')->isHtmx()
-            && str_contains($html, '</body>')
-            && ! str_contains($html, 'id="htmxErrorModalScript"')
+            && self::str_contains($html, '</body>')
+            && ! self::str_contains($html, 'id="htmxErrorModalScript"')
         ) {
             $script = <<<'EOM'
                 <script id="htmxErrorModalScript">
@@ -70,5 +72,16 @@ class ErrorModalDecorator implements ViewDecoratorInterface
         }
 
         return $html;
+    }
+
+    // fallback for php 7.4
+    //strangely enough, defining this inside the above function would trigger an error
+    /**
+     * See https://www.php.net/manual/en/function.str-contains.php#126277
+     */
+
+    private static function str_contains(string $haystack, string $needle): bool
+    {
+        return empty($needle) || strpos($haystack, $needle) !== false;
     }
 }
