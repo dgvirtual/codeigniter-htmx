@@ -1,15 +1,8 @@
 # Installation
 
-- [Composer Installation](#composer-installation)
+Currently only manual installation is available.
+
 - [Manual Installation](#manual-installation)
-
-## Composer Installation
-
-The only thing you have to do is to run this command, and you're ready to go.
-
-```console
-composer require michalsn/codeigniter-htmx
-```
 
 ## Manual Installation
 

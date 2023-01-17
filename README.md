@@ -2,7 +2,7 @@
 
 This fork is meant to adapt the library for PHP 7 (the original library only works with PHP 8.x)
 
-NO ADJUSTMENTS HAVE BEEN ADDED YET. What follows comes from the original project.
+To install the modified library please follow the manual installation instructions of the original package. The demo app should work out of the box.
 
 A set of methods for `IncomingRequest`, `Response` and `RedirectResponse` classes to help you work with [htmx](https://htmx.org) fluently in CodeIgniter 4 framework.
 
@@ -15,7 +15,7 @@ It also provides some additional help with **handling errors** in development mo
 
 ## Installation
 
-    composer require michalsn/codeigniter-htmx
+Follow the manual installation instructions in the docs, while downloading package from this repository.
 
 ## Docs
 

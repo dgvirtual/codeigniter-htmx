@@ -1,19 +1,23 @@
 {
-    "name": "michalsn/codeigniter-htmx",
-    "description": "HTMX helper for CodeIgniter 4 framework",
+    "name": "dgvirtual/codeigniter-htmx",
+    "description": "HTMX helper for CodeIgniter 4 framework, adapting it to PHP7",
     "license": "MIT",
     "type": "library",
-    "keywords": ["codeigniter", "codeigniter4", "htmx"],
+    "keywords": ["codeigniter", "codeigniter4", "htmx", "PHP7"],
     "authors": [
         {
             "name": "michalsn",
             "homepage": "https://github.com/michalsn",
             "role": "Developer"
+        }, {
+            "name": "dgvirtual",
+            "homepage": "https://github.com/dgvirtual",
+            "role": "Adapter to PHP7"
         }
     ],
     "homepage": "https://github.com/michalsn/codeigniter-htmx",
     "require": {
-        "php": "^8.0"
+        "php": "^7.4 || ^8.0"
     },
     "require-dev": {
         "codeigniter4/devkit": "^1.0",

@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+### Adaptations
+- Adaptations for running on PHP7.4 (the original version was for PHP8).
+ - 2022-12-09
+
 ## [Unreleased]
 
 ## [1.1.0](https://github.com/michalsn/codeigniter-htmx/compare/v1.0.0...v1.1.0) - 2023-01-10
