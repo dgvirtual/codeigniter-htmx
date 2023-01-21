@@ -1,6 +1,17 @@
 # Installation
 
-Currently only manual installation is available.
+- [Composer Installation](#composer-installation)
+- [Manual Installation](#manual-installation)
+
+## Composer Installation
+
+In an existing Composer project all you have to do is to these commands, and you're ready to go.
+
+```console
+composer config minimum-stability dev
+composer config repositories.codeigniter-htmx vcs git@github.com:dgvirtual/codeigniter-htmx.git
+composer require michalsn/codeigniter-htmx:dev-php7port
+```
 
 - [Manual Installation](#manual-installation)
 
