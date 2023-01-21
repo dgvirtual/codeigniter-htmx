@@ -1,5 +1,5 @@
 {
-    "name": "dgvirtual/codeigniter-htmx",
+    "name": "michalsn/codeigniter-htmx",
     "description": "HTMX helper for CodeIgniter 4 framework, adapting it to PHP7",
     "license": "MIT",
     "type": "library",
