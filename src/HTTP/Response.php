@@ -75,21 +75,9 @@ class Response extends BaseResponse
         //     'swap'    => 'HX-Trigger-After-Swap',
         //     default   => throw new InvalidArgumentException('A value for "after" argument must be one of: "receive", "settle", or "swap".'),
         // };
+        // replacement for match defined as a private method below
 
-        function match74($value)
-        {
-            if ($value == 'receive') {
-                return 'HX-Trigger';
-            } elseif ($value == 'settle') {
-                return 'HX-Trigger-After-Settle';
-            } elseif ($value == 'swap') {
-                return 'HX-Trigger-After-Swap';
-            }
-
-            throw new InvalidArgumentException('A value for "after" argument must be one of: "receive", "settle", or "swap".');
-        }
-
-        $header = match74($after);
+        $header = $this->match74($after);
         // downgrade to php 7.4: end
 
         if ($this->hasHeader($header)) {
@@ -106,4 +94,19 @@ class Response extends BaseResponse
 
         return $this;
     }
+
+    // downgrade to php 7.4: define the function to replace php8's match
+    private function match74($value)
+    {
+        if ($value == 'receive') {
+            return 'HX-Trigger';
+        } elseif ($value == 'settle') {
+            return 'HX-Trigger-After-Settle';
+        } elseif ($value == 'swap') {
+            return 'HX-Trigger-After-Swap';
+        }
+
+        throw new InvalidArgumentException('A value for "after" argument must be one of: "receive", "settle", or "swap".');
+    }
+    // downgrade to php 7.4: end
 }
