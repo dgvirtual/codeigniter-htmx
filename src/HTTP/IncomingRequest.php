@@ -74,10 +74,10 @@ class IncomingRequest extends BaseIncomingRequest
     /**
      * The value of the header is a JSON serialized
      * version of the event that triggered the request.
-     *
+     * @return array|object|null
      * @see https://htmx.org/extensions/event-header/
      */
-    public function getTriggeringEvent(bool $toArray = true): array|object|null
+    public function getTriggeringEvent(bool $toArray = true)
     {
         if (! $this->hasHeader('Triggering-Event')) {
             return null;
