@@ -10,9 +10,9 @@ It also provides some additional help with **handling errors** and **Debug Toolb
 
 To install in an **existing composer project**, run in command line:
 
-composer config minimum-stability dev
+`composer config minimum-stability dev
 composer config repositories.codeigniter-htmx vcs git@github.com:dgvirtual/codeigniter-htmx.git
-composer require michalsn/codeigniter-htmx:dev-php7port
+composer require michalsn/codeigniter-htmx:dev-php7port`
 
 For **manual installation**, follow the manual installation instructions in the docs, while downloading package from this repository.
 
