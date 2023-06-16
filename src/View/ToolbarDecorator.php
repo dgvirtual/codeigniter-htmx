@@ -11,8 +11,8 @@ class ToolbarDecorator implements ViewDecoratorInterface
         if (CI_DEBUG
             && (! is_cli() || ENVIRONMENT === 'testing')
             && ! service('request')->isHtmx()
-            && str_contains($html, '</head>')
-            && ! str_contains($html, 'id="htmxToolbarScript"')
+            && self::str_contains($html, '</head>')
+            && ! self::str_contains($html, 'id="htmxToolbarScript"')
         ) {
             $script = sprintf(
                 '<script %s id="htmxToolbarScript">%s</script>',
@@ -29,5 +29,10 @@ class ToolbarDecorator implements ViewDecoratorInterface
         }
 
         return $html;
+    }
+
+    private static function str_contains(string $haystack, string $needle): bool
+    {
+        return empty($needle) || strpos($haystack, $needle) !== false;
     }
 }
