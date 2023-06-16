@@ -4,7 +4,7 @@ This fork is meant to adapt the library for PHP 7 (the original library only wor
 
 A set of methods for `IncomingRequest`, `Response` and `RedirectResponse` classes to help you work with [htmx](https://htmx.org) fluently in CodeIgniter 4 framework.
 
-It also provides some additional help with **handling errors** in development mode as well as support for **view fragments**.
+It also provides some additional help with **handling errors** and **Debug Toolbar** in development mode as well as support for **view fragments**.
 
 ## Installation
 
@@ -15,6 +15,8 @@ composer config repositories.codeigniter-htmx vcs git@github.com:dgvirtual/codei
 composer require michalsn/codeigniter-htmx:dev-php7port
 
 For **manual installation**, follow the manual installation instructions in the docs, while downloading package from this repository.
+
+Remember - you still need to include the `htmx` javascript library inside the `head` tag.
 
 ## Docs
 
