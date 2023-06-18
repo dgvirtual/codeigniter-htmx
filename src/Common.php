@@ -36,3 +36,18 @@ if (!function_exists('view_fragment')) {
         return $renderer->setData($data, 'raw')->render($name, $options, $saveData);
     }
 }
+
+if (!function_exists('str_contains')) {
+    /**
+     * Replacement for a corresponding PHP8 function
+     * Checks if $needle is found in $haystack and returns a
+     * boolean value (true/false) whether or not the $needle was found.
+     *
+     * @param string $haystack the string to search in
+     * @param string $needle what we are looking for
+     */
+    function str_contains(string $haystack, string $needle): bool
+    {
+        return empty($needle) || strpos($haystack, $needle) !== false;
+    }
+}
