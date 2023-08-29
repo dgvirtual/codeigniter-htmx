@@ -83,8 +83,26 @@ final class CommonTest extends CIUnitTestCase
             'testString2' => 'Hello World',
         ];
 
-        $expected = "Page bottom";
+        $expected = 'Page bottom';
 
         $this->assertSame($expected, view_fragment('with_fragment', 'sample0', $data));
+    }
+
+    public function testStrContains(): void
+    {
+        $string = "It should start with 'It should'";
+
+        $this->assertStringContainsString('It should', $string);
+        $this->assertStringNotContainsString('It does', $string);
+
+    }
+
+    public function testStrStartsWith(): void
+    {
+        $string = "It should start with 'It should'";
+
+        $this->assertStringStartsWith('It should', $string);
+        $this->assertStringStartsNotWith('It does', $string);
+
     }
 }
