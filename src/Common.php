@@ -3,7 +3,7 @@
 use CodeIgniter\Config\Services;
 use CodeIgniter\Config\View;
 
-if (!function_exists('view_fragment')) {
+if (! function_exists('view_fragment')) {
     /**
      * Grabs the current RendererInterface-compatible class
      * and tells it to render the specified view fragments.
@@ -13,8 +13,8 @@ if (!function_exists('view_fragment')) {
      * NOTE: Does not provide any escaping of the data, so that must
      * all be handled manually by the developer.
      *
-     * @param array $options Options for saveData or third-party extensions.
-     * @param string|array $fragments // downgrade to php 7.4
+     * @param array        $options   Options for saveData or third-party extensions.
+     * @param array|string $fragments // downgrade to php 7.4
      */
     function view_fragment(string $name, $fragments, array $data = [], array $options = []): string
     {
@@ -37,17 +37,33 @@ if (!function_exists('view_fragment')) {
     }
 }
 
-if (!function_exists('str_contains')) {
+if (! function_exists('str_contains')) {
     /**
      * Replacement for a corresponding PHP8 function
      * Checks if $needle is found in $haystack and returns a
      * boolean value (true/false) whether or not the $needle was found.
      *
      * @param string $haystack the string to search in
-     * @param string $needle what we are looking for
+     * @param string $needle   what we are looking for
      */
     function str_contains(string $haystack, string $needle): bool
     {
         return empty($needle) || strpos($haystack, $needle) !== false;
+    }
+}
+
+if (! function_exists('str_starts_with')) {
+    /** Replacement for a corresponding PHP8 function
+     * Checks if $needle is found in $haystack and returns a
+     * boolean value (true/false) whether or not the $needle was found.
+     * source: Laravel Framework
+     * https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/Str.php
+     *
+     * @param string $haystack
+     * @param string $needle
+     */
+    function str_starts_with($haystack, $needle): bool
+    {
+        return (string) $needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
     }
 }
