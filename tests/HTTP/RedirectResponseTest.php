@@ -33,7 +33,7 @@ final class RedirectResponseTest extends CIUnitTestCase
 
     public function testHxLocationWithSourceAndEvent(): void
     {
-        $this->response = $this->response->hxLocation(path: '/foo', source: '#myElem', event: 'doubleclick');
+        $this->response = $this->response->hxLocation('/foo', '#myElem', 'doubleclick');
 
         $this->assertTrue($this->response->hasHeader('HX-Location'));
         $expected = json_encode(['path' => '/foo', 'source' => '#myElem', 'event' => 'doubleclick']);
@@ -43,7 +43,7 @@ final class RedirectResponseTest extends CIUnitTestCase
 
     public function testHxLocationWithTargetAndSwap(): void
     {
-        $this->response = $this->response->hxLocation(path: '/foo', target: '#myDiv', swap: 'outerHTML');
+        $this->response = $this->response->hxLocation('/foo', null, null, '#myDiv', 'outerHTML');
 
         $this->assertTrue($this->response->hasHeader('HX-Location'));
         $expected = json_encode(['path' => '/foo', 'target' => '#myDiv', 'swap' => 'outerHTML']);
@@ -53,7 +53,7 @@ final class RedirectResponseTest extends CIUnitTestCase
 
     public function testHxLocationWithValuesAndHeaders(): void
     {
-        $this->response = $this->response->hxLocation(path: '/foo', values: ['myVal' => 'My Value'], headers: ['myHeader' => 'My Value']);
+        $this->response = $this->response->hxLocation('/foo', null, null, null, null, ['myVal' => 'My Value'], ['myHeader' => 'My Value']);
 
         $this->assertTrue($this->response->hasHeader('HX-Location'));
         $expected = json_encode(['path' => '/foo', 'values' => ['myVal' => 'My Value'], 'headers' => ['myHeader' => 'My Value']]);
@@ -64,7 +64,7 @@ final class RedirectResponseTest extends CIUnitTestCase
     public function testHxLocationThrowInvalidArgumentException(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->response = $this->response->hxLocation(path: '/foo', swap: 'foo');
+        $this->response = $this->response->hxLocation('/foo', null, null, null, 'foo');
     }
 
     public function testHxRedirect(): void
