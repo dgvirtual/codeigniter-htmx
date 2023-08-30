@@ -63,8 +63,9 @@ class Response extends BaseResponse
     /**
      * Allows you to trigger client side events.
      *
-     * @return Response;
      * @param array|string $params // downgrade to php 7.4
+     *
+     * @return Response;
      */
     public function triggerClientEvent(string $name, $params = '', string $after = 'receive'): Response
     {
@@ -98,11 +99,13 @@ class Response extends BaseResponse
     // downgrade to php 7.4: define the function to replace php8's match
     private function match74($value)
     {
-        if ($value == 'receive') {
+        if ($value === 'receive') {
             return 'HX-Trigger';
-        } elseif ($value == 'settle') {
+        }
+        if ($value === 'settle') {
             return 'HX-Trigger-After-Settle';
-        } elseif ($value == 'swap') {
+        }
+        if ($value === 'swap') {
             return 'HX-Trigger-After-Swap';
         }
 

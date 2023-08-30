@@ -4,8 +4,6 @@ namespace Michalsn\CodeIgniterHtmx\Debug;
 
 use CodeIgniter\Debug\Toolbar as BaseToolbar;
 use CodeIgniter\HTTP\DownloadResponse;
-use CodeIgniter\HTTP\RequestInterface;
-use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\I18n\Time;
 use Config\Services;
 use Config\Toolbar as ToolbarConfig;
@@ -19,6 +17,9 @@ class Toolbar extends BaseToolbar
      * Prepare for debugging.
      *
      * @psalm-suppress UndefinedClass
+     *
+     * @param mixed|null $request
+     * @param mixed|null $response
      */
     public function prepare($request = null, $response = null)
     {
@@ -84,7 +85,6 @@ class Toolbar extends BaseToolbar
                 . '<style ' . csp_style_nonce() . ' id="debugbar_dynamic_style"></style>'
                 . $kintScript
                 . PHP_EOL;
-
 
             if (str_contains($response->getBody(), '<head>')) {
                 $response->setBody(

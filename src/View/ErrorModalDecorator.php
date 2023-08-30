@@ -8,7 +8,6 @@ class ErrorModalDecorator implements ViewDecoratorInterface
 {
     public static function decorate(string $html): string
     {
-
         if (
             CI_DEBUG
             && (! is_cli() || ENVIRONMENT === 'testing')
