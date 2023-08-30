@@ -1,9 +1,6 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-### Adaptations
-- Adaptations for running on PHP7.4 (the original version was for PHP8).
- - 2022-12-09
 
 ## [Unreleased]
 
@@ -29,6 +26,10 @@ All notable changes to this project will be documented in this file.
 
 ### Enhancements
 - Add support for `htmx` and `boosted` param to the `IncomingRequest::is()` method.
+
+### Adaptations
+- Start of this repository dgvirtual/codeigniter-htmx
+- Adaptations for running on PHP7.4 (the original version is for PHP8). - 2022-12-09
 
 ## [1.0.0](https://github.com/michalsn/codeigniter-htmx/compare/v1.0.0-beta.2...v1.0.0) - 2022-12-09
 
